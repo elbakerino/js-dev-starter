@@ -1,0 +1,66 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "node": "18"
+                },
+                "modules": false
+            }
+        ],
+        "@babel/preset-typescript",
+        [
+            "@babel/preset-react",
+            {
+                "runtime": "automatic"
+            }
+        ]
+    ],
+    "plugins": [
+    ],
+    "ignore": [
+        "**/rapidoc/rapidoc.js"
+    ],
+    "env": {
+        "test": {
+            "presets": [
+                "@babel/preset-env",
+                "@babel/preset-typescript",
+                [
+                    "@babel/preset-react",
+                    {
+                        "runtime": "automatic"
+                    }
+                ]
+            ]
+        },
+        "node": {
+            "presets": [
+                [
+                    "@babel/preset-env",
+                    {
+                        "targets": {
+                            "node": "18"
+                        },
+                        "modules": false
+                    }
+                ],
+                [
+                    "@babel/preset-typescript",
+                    {
+                        "targets": {
+                            "node": "18"
+                        }
+                    }
+                ],
+                [
+                    "@babel/preset-react",
+                    {
+                        "runtime": "automatic"
+                    }
+                ]
+            ]
+        }
+    }
+}

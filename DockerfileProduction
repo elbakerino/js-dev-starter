@@ -1,0 +1,20 @@
+FROM node:18-alpine
+
+RUN mkdir /home/node/app/ && \
+    mkdir /home/node/app/node_modules && \
+    chown -R node:node /home/node/app && \
+    chown -R node:node /usr/local/lib/node_modules
+
+WORKDIR /home/node/app
+
+COPY --chown=node:node ./build ./
+
+USER node
+
+RUN npm ci --omit=dev && npm cache clean --force --loglevel=error
+
+ENV NODE_OPTIONS="--experimental-vm-modules --experimental-fetch --unhandled-rejections=strict --no-deprecation"
+
+CMD [ "node", "server.js"]
+
+EXPOSE 3000

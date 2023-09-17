@@ -1,0 +1,9 @@
+- PT Sans
+    - Open Font License
+    - https://fonts.google.com/specimen/PT+Sans/about
+- Roboto Slab
+    - Apache License, Version 2.0
+    - https://fonts.google.com/specimen/Roboto+Slab/about
+- Titillium Web
+    - Open Font License
+    - https://fonts.google.com/specimen/Titillium+Web/about

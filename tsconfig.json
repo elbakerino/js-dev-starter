@@ -1,0 +1,59 @@
+{
+    "compilerOptions": {
+        "isolatedModules": true,
+        "module": "ES2022",
+        "target": "ES2022",
+        "jsx": "react-jsx",
+        "removeComments": false,
+        "moduleResolution": "NodeNext",
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "noImplicitAny": false,
+        "experimentalDecorators": true,
+        "baseUrl": "./",
+        "allowSyntheticDefaultImports": true,
+        "noErrorTruncation": true,
+        "allowJs": true,
+        "declaration": false,
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "esModuleInterop": false,
+        "strictNullChecks": true,
+        "alwaysStrict": true,
+        "outDir": "build",
+        "noEmit": true,
+        "paths": {
+            "@app/helpers": [
+                "packages/helpers/src"
+            ],
+            "@app/helpers/*": [
+                "packages/helpers/src/*"
+            ],
+            "@app/design-systems": [
+                "packages/design-systems/src"
+            ],
+            "@app/design-systems/*": [
+                "packages/design-systems/src/*"
+            ]
+        }
+    },
+    "include": [
+        "webpack.config.ts",
+        "packages.js",
+        "packages",
+        "src"
+    ],
+    "exclude": [
+        "node_modules"
+    ],
+    "ts-node": {
+        "esm": true,
+        "compilerOptions": {
+            "module": "NodeNext",
+            "moduleResolution": "NodeNext",
+            "esModuleInterop": true
+        }
+    }
+}

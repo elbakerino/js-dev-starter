@@ -1,0 +1,11 @@
+{% layout "default.liquid" %}
+
+{% block content %}
+{% comment %}
+{% if content %}
+    <script type="application/json" data-bind="content-data">{{ content | json | raw }}</script>
+{% else %}
+    <script type="application/json" data-bind="content-data">null</script>
+{% endif %}
+{% endcomment %}
+{% endblock %}

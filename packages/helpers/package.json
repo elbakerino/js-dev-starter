@@ -1,0 +1,23 @@
+{
+    "name": "@app/helpers",
+    "private": true,
+    "version": "0.0.1",
+    "description": "",
+    "homepage": "",
+    "license": "MIT",
+    "type": "module",
+    "exports": {
+        "./SizeFormat": {
+            "import": "./build/SizeFormat/index.js",
+            "types": "./src/SizeFormat/index.ts"
+        }
+    },
+    "scripts": {
+    },
+    "dependencies": {
+    },
+    "peerDependencies": {
+    },
+    "devDependencies": {
+    }
+}

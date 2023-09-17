@@ -1,0 +1,24 @@
+{
+    "name": "@app/design-system",
+    "private": true,
+    "version": "0.0.1",
+    "description": "",
+    "homepage": "",
+    "license": "MIT",
+    "type": "module",
+    "exports": {
+        "./Button": {
+            "import": "./build/Button/index.js",
+            "types": "./src/Button/index.ts"
+        }
+    },
+    "scripts": {
+    },
+    "dependencies": {
+    },
+    "peerDependencies": {
+        "react": "^18.0"
+    },
+    "devDependencies": {
+    }
+}

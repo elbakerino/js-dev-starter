@@ -1,0 +1,41 @@
+<!doctype HTML>
+<html lang="{% if meta.lang %}{{ meta.lang }}{% else %}en{% endif %}">
+<head>
+    {% if meta.title %}<title>{{ meta.title }}</title>{% endif %}
+    {% if meta.description %}
+        <meta name="description" content="{{ meta.description }}">
+    {% endif %}
+    {% for style in styles %}
+        {% if style.css %}
+            <style>{{ style.css | raw }}</style>
+        {% elsif style.href %}
+            <link href="{{ style.href }}" rel="stylesheet" type="text/css"/>
+        {% endif %}
+    {% endfor %}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url.base }}/favicon.ico"/>
+    <link rel="canonical" href="{{ url.canonical }}"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    {% block head_end %}{% endblock %}
+</head>
+<body class="bg-body" style="min-height: 100vh;">
+
+{% block pwa_root %}
+<!-- htmlmin:ignore -->
+<div id="root" class="flex grow-1x">{{ reactRoot | raw }}</div>
+<!-- htmlmin:ignore -->
+<script type="application/json" data-bind="app-config">{{ appConfig | json | raw }}</script>
+{% endblock %}
+
+{% block content %}{% endblock %}
+
+{% block scripts %}
+{% for script in scripts %}
+    {% if script.js and env.mode != 'development' %}
+        <script type="module">{{ script.js | raw }}</script>
+    {% else %}
+        <script type="module" src="{{ script.path }}" async defer></script>
+    {% endif %}
+{% endfor %}
+{% endblock %}
+</body>
+</html>

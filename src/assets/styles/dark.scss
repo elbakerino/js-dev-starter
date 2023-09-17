@@ -1,0 +1,91 @@
+$color-primary: #6224ff !default;
+//$panel-bg-color: #000607 !default;
+$panel-bg-color: #031217 !default;
+$color-blue-light-ci: #70e6dc !default;
+
+@import "main";
+
+$elevation-steps-dark: (
+    0: none,
+    1: 0 7px 12px #000a0d,
+    2: 0 8px 16px #000a0d,
+    3: 0 12px 22px #000a0d,
+    4: 0 14px 26px #000a0d,
+    'light': 0 4px 12px #000a0d,
+) !default;
+
+.theme-dark {
+    //&, * {
+    &, .bg-white, .MuiDialog-paper, code, pre, .modal {
+        background: $theme_dark_bg;
+        color: #d3d3d3;
+    }
+
+    @each $name, $elevation in $elevation-steps-dark {
+        /// for each $elevation-steps
+        .ev#{$name} {
+            box-shadow: $elevation;
+        }
+    }
+
+
+    .bg-white-trans {
+        background: rgba($theme_dark_bg, 0.6);
+    }
+
+    .MuiChip-outlined {
+        border-color: rgba(#d3d3d3, 0.6);
+    }
+
+    .bg-dark-trans {
+        //background: rgba(#031217, 0.8);
+    }
+
+    .overlay-privacy--content {
+        background: $theme_dark_bg;
+        padding: space(2);
+        @include bp-md {
+            padding: space(4);
+        }
+    }
+
+    *, .MuiTypography-colorTextSecondary, .MuiTableCell-body, .MuiTableCell-head {
+        color: #d3d3d3;
+    }
+
+    .h1, .h2, .h3, .h4, .h5, .h6 {
+        border-bottom-color: $color-blue-light-ci;
+    }
+
+    .btn-primary {
+        background: $color-blue-light-ci;
+        border-color: $color-blue-light-ci;
+        color: $theme_dark_bg;
+    }
+
+    blockquote {
+        &:before {
+            color: $color-blue-light-ci;
+        }
+
+        background: $theme_dark_bg;
+        border-color: $color-blue-light-ci;
+    }
+
+    .ic-round {
+        svg {
+            background: transparent;
+            fill: $theme_dark_bg;
+        }
+
+        &:after {
+            background-color: $color-blue-light-ci;
+        }
+    }
+
+    .ic-round {
+        svg {
+            background: transparent;
+        }
+    }
+}
