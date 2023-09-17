@@ -48,6 +48,12 @@ npm run storybook
 # default: http://localhost:8081
 ```
 
+Start style watcher, requires a running `npm run dev` or `npm run build`, is included in `npm run start-dev`:
+
+```shell
+node cli styles --watch
+```
+
 ## Overview
 
 Using:
@@ -60,6 +66,7 @@ Using:
 - **express.js** as NodeJS webserver (atm. using an, undocumented, micro-framework for routing + cli)
 - **liquid** templates with LiquidJS for server-side templating
 - **ReactJS** with support for client and server-side rendering
+    - using [react/jsx-runtime](https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) for React v18
 
 Supports project structures:
 
@@ -83,3 +90,5 @@ Supports project structures:
 - basic Jest/testing-library setup, **but not yet optimized/fully setup**
 - contains basic example on data providers for server+client-side rendering, **but does not contain react routing and respective data loading yet**
 - storybook and styles (webpack-imports, separate stylesheets) are not that good integrated yet
+- the assets, especially styles, should be somewhere else, to better support e.g. file-deletion sync
+- babel compilation didn't support file-deletion syncs, check if maybe now theres some workaround

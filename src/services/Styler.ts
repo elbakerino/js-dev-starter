@@ -76,6 +76,14 @@ export class Styler {
             .then((css): [string, URL[]] => [css.css, loadedUrls])
     }
 
+    /**
+     * Checks for existence and if missing compiles the stylesheet.
+     *
+     * @param pathDist the folder where to store the CSS files
+     * @param sourceStyles a list of files which should be compiled
+     * @param watchFiles to activate a `fs.stat` based file-has-changed detection, using all imported files of the sourceStyle
+     * @param variables custom scss added before compiling
+     */
     async makeOrUse(
         pathDist: string,
         sourceStyles: StyleSourcePath[],
@@ -126,20 +134,29 @@ export class Styler {
             }
 
             if(!exists) {
-                const startTime = performance.now()
-                const [resultPostCss, loadedUrls] = await this.compile(sourcePath, path.dirname(sourcePath), undefined, variables)
-                const endTime = performance.now()
-                console.debug(`compiled "${sourcePath}" in ${((endTime - startTime) / 1000).toFixed(3)}s`)
+                const [, loadedUrls] = await this.compileAndSave(sourcePath, cssPath, variables)
                 this.watcherMaps[sourcePath] = {
                     urls: loadedUrls,
                 }
-                const css = resultPostCss
-                await fs.mkdir(path.dirname(cssPath), {recursive: true})
-                await fs.writeFile(cssPath, css)
             }
 
             styles.push({sourcePath: sourcePath, cssName, cssPath, cssFile: path.basename(cssName)})
         }
         return styles
+    }
+
+    async compileAndSave(
+        sourcePath: string,
+        cssPath: string,
+        variables?: string,
+    ): ReturnType<Styler['compile']> {
+        const startTime = performance.now()
+        const [resultPostCss, loadedUrls] = await this.compile(sourcePath, path.dirname(sourcePath), undefined, variables)
+        const endTime = performance.now()
+        console.debug(`compiled "${sourcePath}" in ${((endTime - startTime) / 1000).toFixed(3)}s`)
+        const css = resultPostCss
+        await fs.mkdir(path.dirname(cssPath), {recursive: true})
+        await fs.writeFile(cssPath, css)
+        return [resultPostCss, loadedUrls]
     }
 }

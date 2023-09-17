@@ -49,7 +49,7 @@ const HomeHandler: RouteHandler = async(req, res) => {
         // todo: use another folder as dist
         path.join(ServiceService.config('assetsDir'), 'public'),
         sourceStyles,
-        true,
+        false,
         // todo: these variable have a relation to siteData, but only to the pure-data,
         //       but the siteData depends for assets on the result of styler
         `$cdn-url: ${JSON.stringify(urlRelative)};`,
