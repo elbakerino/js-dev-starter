@@ -1,0 +1,70 @@
+//$title-font-family: "Roboto Slab", Baskerville, "Baskerville Old Face", Garamond, "Times New Roman", serif;
+$title-font-family: "Roboto Slab", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+$title-font-color: #263648;
+//$font-family: sans-serif;
+$font-color: #2f373a;
+$line-height: 1.45;
+$spacing: 8px;
+$spacings-def: (0: 0, '05': 0.5, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 10: 10) !default;
+$bg-body: #dee6e4 !default;
+$bg-paper: #ffffff !default;
+$bg-contained: #ffffff !default;
+$color-primary: #6224ff !default;
+$panel-bg-color: #fff !default;
+
+//$theme_dark_bg: #031217;
+$theme_dark_bg: #011015;
+//$button-lg-padding: space(2) space(4);
+$button-lg-padding: 8px 24px;
+$button-lg-font-size: 1.25rem;
+
+@import 'normalize.css/normalize.css';
+@import '@formanta/sass/meta';
+
+$container-sizes: (
+    'sm' : $bp-small,
+    'md' : $bp-medium,
+    'lg' : $bp-large + 100,
+    'xl' : $bp-xlarge,
+);
+
+//@import '@formanta/sass/style';
+
+@import "@formanta/sass/style-global";
+
+@import "@formanta/sass/loading/style";
+@import "@formanta/sass/modal/style";
+@import "@formanta/sass/panel/style";
+@import "@formanta/sass/tooltip/style";
+
+@import "@formanta/sass/container/containers";
+@import "@formanta/sass/container/containers-responsive";
+
+@import "@formanta/sass/code/style";
+@import "@formanta/sass/blockquote/style";
+
+@import "@formanta/sass/table/style";
+
+@import "@formanta/sass/typography/style";
+@import "@formanta/sass/typography/links";
+
+@import "@formanta/sass/buttons/style";
+
+@import "@formanta/sass/elevation/style";
+@import "@formanta/sass/outlined/style";
+
+@import "@formanta/sass/spacing/style";
+@import "@formanta/sass/spacing/style-responsive";
+@import "@formanta/sass/grid/style";
+
+@import "@formanta/sass/style-base";
+
+@import "typo";
+@import "privacy-overlay";
+
+#clear-consent, .MuiDialog-root {
+    button:hover,
+    button:focus {
+        transform: none;
+    }
+}

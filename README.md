@@ -10,10 +10,17 @@ Install dependencies:
 npm i
 ```
 
+Configure:
+
+```shell
+cp .env.example .env
+```
+
 Start dev compilation and local server:
 
 ```shell
 npm run start-dev
+# default: http://localhost:8080
 ```
 
 Only compile, for e.g. server-in-docker (docker example setup not yet included):
@@ -32,6 +39,13 @@ Start test-driven-development:
 
 ```shell
 npm run tdd
+```
+
+Start [storybook](https://storybook.js.org):
+
+```shell
+npm run storybook
+# default: http://localhost:8081
 ```
 
 ## Overview
@@ -68,3 +82,4 @@ Supports project structures:
     - there is no clear solution yet, *the target would be to use the strict `NodeNext` for as much as possible*
 - basic Jest/testing-library setup, **but not yet optimized/fully setup**
 - contains basic example on data providers for server+client-side rendering, **but does not contain react routing and respective data loading yet**
+- storybook and styles (webpack-imports, separate stylesheets) are not that good integrated yet

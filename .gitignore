@@ -1,5 +1,6 @@
 /coverage
 /build
+/build-storybook
 
 # env variables
 .env
