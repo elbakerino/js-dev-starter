@@ -1,3 +1,5 @@
+import { ContentParser } from '@content-ui/md/parser/ContentParser'
+import { parseTo } from '@content-ui/md/parser/ParseTo'
 import { RouteHandler } from '@orbstation/route/RouteHandler'
 import { renderToString } from 'react-dom/server'
 import { App } from '../app/App.js'
@@ -31,13 +33,44 @@ const HomeHandler: RouteHandler = async(req, res) => {
     const templateRegistry = ServiceService.use(TemplateRegistry)
     const styler = ServiceService.use(Styler)
     const contentData = {
-        content: '# Welcome',
+        content: `# Welcome & Introduction
+
+**JavaScript** (JS) has come a long way from its inception in *1995* as a tool to add simple interactivity to web pages. Fast forward to today, and we find ourselves in a world where modern JavaScript, with its **ECMAScript Modules (ESM)** and **ReactJS**, delivers powerful client and server-side rendering for web applications.
+
+## The Tech Odyssey of JavaScript
+
+1. **The Birth of Interactivity**: In 1995, JS was born as a tool for adding rudimentary interactivity to static web pages. It ushered in an era of dynamic web experiences.
+2. **Dynamic Web Emerges**: As the web matured, JavaScript evolved alongside it. Libraries like **jQuery** (2006) provided a standardized way to interact with the Document Object Model (DOM), making web development more accessible.
+3. **The Rise of Ajax**: The early 2000s saw the advent of **Ajax (Asynchronous JavaScript and XML)**, enabling web applications to fetch and display data without refreshing the entire page. This marked a significant leap in user experience.
+4. **Node.js Revolution (2009)**: Node.js, created by Ryan Dahl, brought JavaScript to the server-side. Its event-driven, non-blocking I/O architecture made it ideal for building scalable, real-time applications.
+5. **ECMAScript Standardization (1997 - Present)**: ECMAScript, the standardized core of JavaScript, was established to ensure consistency across different implementations. It has continued to evolve, with each version introducing new language features and improvements.
+6. **The Rise of Single-Page Applications (SPAs)**: In the mid-2010s, SPAs became popular. Libraries like **AngularJS** and later **ReactJS** revolutionized UI development by introducing component-based architectures and virtual DOM rendering.
+7. **The Dominance of ES6 (2015)**: ECMAScript 6, also known as ES6 or ECMAScript 2015, was a pivotal release. It introduced features like *arrow functions*, *classes*, and, most importantly, *module imports* with \`import\` and \`export\`. This marked a significant shift in how JavaScript code was organized.
+8. **ReactJS Innovation (2013 - Present)**: ReactJS, introduced by Facebook in 2013, transformed UI development. Its virtual DOM and declarative syntax made it faster and more efficient for rendering user interfaces. React continues to evolve with new features and enhancements.
+
+## Modern JavaScript
+
+- *ESM*: ECMAScript 6 (2015) brought modular code with \`import\` and \`export\`.
+- *ReactJS*: Component-based UI with virtual DOM for speed.
+
+## ReactJS Everywhere
+
+**Client & Server Harmony**: ReactJS empowers isomorphic rendering, where applications can run efficiently both on the client and server sides.
+
+---
+
+*Let's dive in and code the future!*`,
         content_type: 'md',
     }
 
+    const ast = await parseTo(contentData.content, ContentParser)
+
     const app = renderToString(
         <App>
-            <StaticContentDataProvider contentData={contentData}>
+            <StaticContentDataProvider
+                contentData={contentData}
+                {...ast}
+            >
                 <PageHome/>
             </StaticContentDataProvider>
         </App>,

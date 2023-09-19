@@ -28,10 +28,16 @@ if(element) {
                 initialContentData = JSON.parse(initialContentDataElem.innerText)
             }
 
+            const initialContentAstElem = document.querySelector('script[type="application/json"][data-bind="content-ast"]') as HTMLScriptElement
+            let initialContentAst: any = undefined
+            if(initialContentAstElem) {
+                initialContentAst = JSON.parse(initialContentAstElem.innerText)
+            }
+
             const node =
                 <React.Profiler id="Your-Page" onRender={() => null}>
                     <App>
-                        <ContentDataProvider initialContentData={initialContentData}>
+                        <ContentDataProvider initialContentData={initialContentData} initialAst={initialContentAst}>
                             {router ?
                                 <RouterProvider router={router} fallbackElement={null}/> :
                                 <PageHome/>}

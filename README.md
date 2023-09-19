@@ -80,13 +80,18 @@ Supports project structures:
 - ❌ unlimited Servers, unlimited Apps, unlimited packages
     - requires e.g. `lerna` style independent handling of `package-lock.json` in nested projects and multi-webpack config setup
 
+> the correct handling of `package-lock.json` per deployable server is a requirement, but with workarounds, like locking the respective package extra in CI, which isn't the best practice
+
+> some structures may benefit from full ts-node for development, using babel only for production bundling
+
 ## Things to solve
 
 - currently Typescript is configured with `moduleResolution: NodeNext`
     - this is somehow needed for working ReactJS packages
-    - this is known from another project, to not work with e.g. `@mui`, which works with `moduleResolution: Node`
+    - ~~this is known from another project, to not work with e.g. `@mui`, which works with `moduleResolution: Node`~~, **mui is not esm ready yet**
     - with it, the Jetbrains IDEs `ij_typescript_use_explicit_js_extension` | `ij_javascript_use_explicit_js_extension` work correctly
     - there is no clear solution yet, *the target would be to use the strict `NodeNext` for as much as possible*
+        - a workaround is to bundle some parts of the server, or even all, using webpack
 - basic Jest/testing-library setup, **but not yet optimized/fully setup**
 - contains basic example on data providers for server+client-side rendering, **but does not contain react routing and respective data loading yet**
 - storybook and styles (webpack-imports, separate stylesheets) are not that good integrated yet
