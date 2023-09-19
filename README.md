@@ -61,12 +61,14 @@ Using:
 - **npm workspaces** for monorepo handling
 - **babel** for packages and server files transpilation to ESM
 - **webpack** for bundling client-side assets
-- **eslint** for linting JS/TS files
 - **sass** for pre-building CSS files (separate to e.g. webpack-loader)
 - **express.js** as NodeJS webserver (atm. using an, undocumented, micro-framework for routing + cli)
 - **liquid** templates with LiquidJS for server-side templating
 - **ReactJS** with support for client and server-side rendering
-    - using [react/jsx-runtime](https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) for React v18
+    - using [react/jsx-runtime](https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) for React v18 (no import of React just for JSX)
+- **Typescript** everywhere, with strict ESM (`NodeNext`) resolution
+- **eslint** for linting JS/TS files
+- **jest** for automatic tests
 
 Supports project structures:
 
@@ -86,12 +88,6 @@ Supports project structures:
 
 ## Things to solve
 
-- currently Typescript is configured with `moduleResolution: NodeNext`
-    - this is somehow needed for working ReactJS packages
-    - ~~this is known from another project, to not work with e.g. `@mui`, which works with `moduleResolution: Node`~~, **mui is not esm ready yet**
-    - with it, the Jetbrains IDEs `ij_typescript_use_explicit_js_extension` | `ij_javascript_use_explicit_js_extension` work correctly
-    - there is no clear solution yet, *the target would be to use the strict `NodeNext` for as much as possible*
-        - a workaround is to bundle some parts of the server, or even all, using webpack
 - basic Jest/testing-library setup, **but not yet optimized/fully setup**
 - contains basic example on data providers for server+client-side rendering, **but does not contain react routing and respective data loading yet**
 - storybook and styles (webpack-imports, separate stylesheets) are not that good integrated yet

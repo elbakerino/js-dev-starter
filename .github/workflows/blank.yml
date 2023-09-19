@@ -65,7 +65,7 @@ jobs:
                     REACT_APP_BASE_PATH: ""
                 run: |
                     npm run build
-                    node makeBuildInfo.js
+                    node --loader ts-node/esm makeBuildInfo.js
                     echo "NODE_ENV=production" >> .env
                     echo "APP_ENV=${APP_ENV}" >> .env
 
@@ -77,7 +77,7 @@ jobs:
                     REACT_APP_BASE_PATH: ""
                 run: |
                     npm run build
-                    node makeBuildInfo.js
+                    node --loader ts-node/esm makeBuildInfo.js
                     echo "NODE_ENV=production" >> .env
                     echo "APP_ENV=${APP_ENV}" >> .env
 
@@ -89,6 +89,6 @@ jobs:
                     REACT_APP_BASE_PATH: ""
                 run: |
                     npm run build
-                    node makeBuildInfo.js
+                    node --loader ts-node/esm makeBuildInfo.js
                     echo "NODE_ENV=production" >> .env
                     echo "APP_ENV=${APP_ENV}" >> .env

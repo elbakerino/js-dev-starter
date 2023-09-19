@@ -40,10 +40,12 @@
         }
     },
     "include": [
-        "webpack.config.ts",
-        "packages.js",
         "packages",
-        "src"
+        "src",
+        "makeBuildInfo.ts",
+        "packages.ts",
+        "packages-babel.ts",
+        "webpack.config.ts"
     ],
     "exclude": [
         "node_modules"

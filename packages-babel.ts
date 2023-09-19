@@ -8,7 +8,7 @@ const doClean = args.includes('--clean')
 
 const babels = packages.map(async (pkg) => {
     if(doClean) {
-        await new Promise((resolve, reject) =>
+        await new Promise<void>((resolve, reject) =>
             rimraf(pkg.out, {}, (err) => {
                 if(err) {
                     reject(err)
@@ -28,7 +28,7 @@ const babels = packages.map(async (pkg) => {
         ...pkg.copyFiles ? ['--copy-files'] : [],
         ...doWatch ? ['-w'] : [],
     ]
-    return new Promise((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
         const babel = spawn('node_modules/.bin/babel', pkgArgs)
         babel.stdout.on('data', (data) => {
             process.stdout.write(`[${pkg.name} | babel] ${data}`)
