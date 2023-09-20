@@ -1,8 +1,8 @@
 import React from 'react'
 
-export const Button: React.FC<React.HTMLAttributes<HTMLButtonElement>> = ({children, ...props}) => {
+export const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = ({children, ...props}) => {
     return <button
         {...props}
-        className={'button ' + (props.className || '')}
+        className={'btn ' + (props.className || '')}
     >{children}</button>
 }

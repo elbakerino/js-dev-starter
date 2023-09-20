@@ -11,6 +11,11 @@ export const routes: OpenApiRoute[] = [
         noSpec: true,
     },
     {
+        id: 'api.ping', method: GET, path: basePath + '/api/ping',
+        handler: loadableHandler(() => import ('./handler/ApiPingHandler.js').then(module => module.default)),
+        noSpec: true,
+    },
+    {
         id: 'locales.locale', method: 'get',
         path: basePath + '/locales/{locale}/{ns}',
         handler: loadableHandler(() => import ('./handler/LocaleHandler.js').then(module => module.default)),

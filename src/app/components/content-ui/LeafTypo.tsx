@@ -9,7 +9,7 @@ import { textToId } from '@content-ui/md/textToId'
 import { WithMdAstChild } from '@content-ui/md/Ast'
 import { BaseLeafContent } from './BaseLeafContent.js'
 
-export const Typography = React.forwardRef((
+export const Typography = React.forwardRef(function Typography(
     {
         component, title,
         children,
@@ -21,7 +21,7 @@ export const Typography = React.forwardRef((
         style?: React.CSSProperties
     }>,
     ref,
-) => {
+) {
     const Comp = component || 'p'
     // @ts-ignore
     return <Comp style={{margin: '0 0 0.125em 0'}} title={title} {...props} ref={ref}>

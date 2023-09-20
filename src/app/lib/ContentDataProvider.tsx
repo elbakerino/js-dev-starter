@@ -44,7 +44,7 @@ export const ContentDataProvider: React.ComponentType<React.PropsWithChildren<Co
             .then((nextAst) => {
                 setAst(nextAst)
             })
-    }, [])
+    }, [contentData?.content])
 
     return <ContentDataContext.Provider value={contentData}>
         <ContentFileProvider

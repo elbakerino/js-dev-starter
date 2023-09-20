@@ -2,7 +2,9 @@
 
 > basic working setup, not yet optimized in various aspects
 
-Forkable, own-the-code, starter repository for isomorphic JS development.
+Starter repository for isomorphic JS development, with npm workspaces and strict ESM support.
+
+## Setup
 
 Install dependencies:
 
@@ -15,6 +17,8 @@ Configure:
 ```shell
 cp .env.example .env
 ```
+
+## Usage
 
 Start dev compilation and local server:
 
@@ -81,6 +85,7 @@ Supports project structures:
     - or requires separate webpack entrypoints with route-to-used-entrypoints mapping
 - ❌ unlimited Servers, unlimited Apps, unlimited packages
     - requires e.g. `lerna` style independent handling of `package-lock.json` in nested projects and multi-webpack config setup
+    - e.g. [`content-ui`](https://github.com/control-ui/content-ui) has such a setup, using manual locking for servers, dev with `ts-node` instead of `babel`, *but without separating the apps dependencies atm.*
 
 > the correct handling of `package-lock.json` per deployable server is a requirement, but with workarounds, like locking the respective package extra in CI, which isn't the best practice
 
@@ -93,3 +98,4 @@ Supports project structures:
 - storybook and styles (webpack-imports, separate stylesheets) are not that good integrated yet
 - the assets, especially styles, should be somewhere else, to better support e.g. file-deletion sync
 - babel compilation didn't support file-deletion syncs, check if maybe now theres some workaround
+- the server uses `spdy` for HTTP2 support (required for HTTP2-Plain for E2E-HTTP2 on Google Cloud Run), try to use only native HTTP2

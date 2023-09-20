@@ -49,9 +49,13 @@ $container-sizes: (
 @import "@formanta/sass/typography/links";
 
 @import "@formanta/sass/buttons/style";
+@import "@formanta/sass/buttons/style-group";
+@import "@formanta/sass/buttons/style-icon";
 
 @import "@formanta/sass/elevation/style";
 @import "@formanta/sass/outlined/style";
+
+@import "@formanta/sass/bg/style";
 
 @import "@formanta/sass/spacing/style";
 @import "@formanta/sass/spacing/style-responsive";

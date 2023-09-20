@@ -1,4 +1,4 @@
-import { Renderer } from '../components/Renderer.js'
+import { Renderer } from '../components/content-ui/Renderer.js'
 import { useContentData } from '../lib/ContentDataProvider.js'
 
 export const PageHome = () => {
