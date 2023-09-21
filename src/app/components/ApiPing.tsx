@@ -9,7 +9,6 @@ import { Typography } from './content-ui/LeafTypo.js'
 
 /**
  * Example component that only uses the API without SSR-data-loader.
- * Does not execute on server, target would be to get it working with https://react.dev/reference/react-dom/server/renderToPipeableStream
  */
 export const ApiPing: React.FC<{ apiHost?: string }> = ({apiHost}) => {
     const fetch = useApi({extractHeaders, dataConvert: dataConverterJson, headers: headersJson})
@@ -26,7 +25,6 @@ export const ApiPing: React.FC<{ apiHost?: string }> = ({apiHost}) => {
             .then(r => {
                 setAbort(undefined)
                 const isPid = setP(ps.done, undefined, fid)
-                console.log(r, isPid)
                 if(!isPid) return
                 setResult(r.data)
             })

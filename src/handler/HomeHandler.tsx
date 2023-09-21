@@ -67,10 +67,7 @@ const HomeHandler: RouteHandler = async(req, res) => {
 
     const app = renderToString(
         <App>
-            <StaticContentDataProvider
-                contentData={contentData}
-                {...ast}
-            >
+            <StaticContentDataProvider contentData={contentData} {...ast}>
                 <PageHome/>
             </StaticContentDataProvider>
         </App>,
@@ -83,8 +80,6 @@ const HomeHandler: RouteHandler = async(req, res) => {
         path.join(ServiceService.config('assetsDir'), 'public'),
         sourceStyles,
         false,
-        // todo: these variable have a relation to siteData, but only to the pure-data,
-        //       but the siteData depends for assets on the result of styler
         `$cdn-url: ${JSON.stringify(urlRelative)};`,
     )
 

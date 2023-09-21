@@ -11,8 +11,23 @@ export const routes: OpenApiRoute[] = [
         noSpec: true,
     },
     {
+        id: 'stream-static', method: GET, path: basePath + '/stream-static',
+        handler: loadableHandler(() => import ('./handler/StreamStaticHandler.js').then(module => module.default)),
+        noSpec: true,
+    },
+    {
+        id: 'stream', method: GET, path: basePath + '/stream',
+        handler: loadableHandler(() => import ('./handler/StreamHandler.js').then(module => module.default)),
+        noSpec: true,
+    },
+    {
         id: 'api.ping', method: GET, path: basePath + '/api/ping',
         handler: loadableHandler(() => import ('./handler/ApiPingHandler.js').then(module => module.default)),
+        noSpec: true,
+    },
+    {
+        id: 'api.demo-data', method: GET, path: basePath + '/api/demo-data',
+        handler: loadableHandler(() => import ('./handler/ApiDemoDataHandler.js').then(module => module.default)),
         noSpec: true,
     },
     {

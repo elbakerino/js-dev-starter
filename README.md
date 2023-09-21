@@ -70,6 +70,8 @@ Using:
 - **liquid** templates with LiquidJS for server-side templating
 - **ReactJS** with support for client and server-side rendering
     - using [react/jsx-runtime](https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) for React v18 (no import of React just for JSX)
+    - example of [`renderToString`](./src/handler/HomeHandler.tsx) for synchronous rendering
+    - example of `renderToPipeableStream` [without client streaming](./src/handler/StreamStaticHandler.tsx) and [with client streaming](./src/handler/StreamHandler.tsx) for `Suspense` supported rendering
 - **Typescript** everywhere, with strict ESM (`NodeNext`) resolution
 - **eslint** for linting JS/TS files
 - **jest** for automatic tests
