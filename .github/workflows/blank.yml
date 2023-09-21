@@ -53,7 +53,7 @@ jobs:
 
             -   name: Install Deps STARTER
                 run: |
-                    npm ci --legacy-peer-deps
+                    npm ci
                     touch .env
                     echo "SERVICE_NAME=your-project" >> .env
 

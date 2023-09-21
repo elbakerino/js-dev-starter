@@ -16,7 +16,7 @@
         "@bemit/cloud-id": "~0.3.2",
         "@bemit/schema": "~0.1.1",
         "@content-ui/md": "~0.0.6",
-        "@content-ui/react": "~0.0.6",
+        "@content-ui/react": "~0.0.7",
         "@formanta/sass": "^0.23.3",
         "@loadable/component": "^5.15.3",
         "@orbstation/cling": "~0.0.2",
