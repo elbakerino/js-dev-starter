@@ -40,7 +40,7 @@ const StreamStaticHandler: RouteHandler = async(req, res) => {
     const contentData = {
         content: `# Suspense Resolved
 
-The next data block is resolved using \`Suspense\` on server and client, but not streamed from server to client, but fully on server, injected in a custom HTML template.
+The next data block is resolved using \`Suspense\` on server and client, but not streamed from server to client, but fully resolved on server and injected in a custom HTML template.
 `,
         content_type: 'md',
     }

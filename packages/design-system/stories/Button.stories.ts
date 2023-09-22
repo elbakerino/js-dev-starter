@@ -14,7 +14,8 @@ const meta = {
     tags: ['autodocs'],
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {
-        // backgroundColor: {control: 'color'},
+        // todo: the `color` prop is missing in autodocs somehow
+        color: {control: 'radio', options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger']},
     },
 } satisfies Meta<typeof Button>
 

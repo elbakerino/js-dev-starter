@@ -31,11 +31,11 @@
             "@app/helpers/*": [
                 "packages/helpers/src/*"
             ],
-            "@app/design-systems": [
-                "packages/design-systems/src"
+            "@app/design-system": [
+                "packages/design-system/src"
             ],
-            "@app/design-systems/*": [
-                "packages/design-systems/src/*"
+            "@app/design-system/*": [
+                "packages/design-system/src/*"
             ]
         }
     },

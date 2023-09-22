@@ -52,6 +52,8 @@ export const ApiPing: React.FC<{ apiHost?: string }> = ({apiHost}) => {
             <Button
                 className={'bg-paper'}
                 onClick={() => load()}
+                color={'primary'}
+                variant={'outlined'}
             >
                 Send
             </Button>

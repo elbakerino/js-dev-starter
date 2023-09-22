@@ -1,5 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-webpack5'
-
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 import { join, dirname } from 'path'
 
 /**
@@ -47,6 +47,40 @@ const config: StorybookConfig = {
             ],
         })
         return config
+    },
+    webpackFinal: async(config) => {
+        const tsRule = {
+            test: /\.(tsx?|jsx?)$/,
+            loader: 'ts-loader',
+            options: {
+                transpileOnly: true,
+            },
+        }
+
+        if(config.resolve) {
+            config.resolve.extensions = ['.tsx', '.ts', '.js', '.jsx']
+            config.resolve.extensionAlias = {
+                '.js': ['.ts', '.js', '.tsx', '.jsx'],
+            }
+            config.resolve.plugins = [
+                ...(config.resolve.plugins || []),
+                new TsconfigPathsPlugin({
+                    extensions: config.resolve.extensions,
+                }),
+            ]
+        }
+
+        return {
+            ...config,
+            module: {
+                ...config.module,
+                rules: [...(config.module?.rules || []), tsRule],
+            },
+        }
+    },
+    typescript: {
+        skipBabel: true,
+        check: false,
     },
     core: {
         disableTelemetry: true,

@@ -70,8 +70,8 @@ Using:
 - **liquid** templates with LiquidJS for server-side templating
 - **ReactJS** with support for client and server-side rendering
     - using [react/jsx-runtime](https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) for React v18 (no import of React just for JSX)
-    - example of [`renderToString`](./src/handler/HomeHandler.tsx) for synchronous rendering
-    - example of `renderToPipeableStream` [without client streaming](./src/handler/StreamStaticHandler.tsx) and [with client streaming](./src/handler/StreamHandler.tsx) for `Suspense` supported rendering
+    - example of `renderToString` for [synchronous rendering](./src/handler/HomeHandler.tsx)
+    - example of `renderToPipeableStream` [with server-side resolving](./src/handler/StreamStaticHandler.tsx) and [with client streaming](./src/handler/StreamHandler.tsx) for `Suspense` supported rendering
 - **Typescript** everywhere, with strict ESM (`NodeNext`) resolution
 - **eslint** for linting JS/TS files
 - **jest** for automatic tests
@@ -100,4 +100,5 @@ Supports project structures:
 - storybook and styles (webpack-imports, separate stylesheets) are not that good integrated yet
 - the assets, especially styles, should be somewhere else, to better support e.g. file-deletion sync
 - babel compilation didn't support file-deletion syncs, check if maybe now theres some workaround
+- get emotion and mui running, once mui is esm ready
 - the server uses `spdy` for HTTP2 support (required for HTTP2-Plain for E2E-HTTP2 on Google Cloud Run), try to use only native HTTP2

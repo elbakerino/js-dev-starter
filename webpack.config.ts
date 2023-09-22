@@ -45,7 +45,7 @@ const config: webpack.Configuration = {
             '.js': ['.ts', '.js', '.tsx', '.jsx'],
         },
         // todo: find options to also use alias loading in NodeJS/babel, to optimize src/build folder and the package-json-exports
-        // todo: check on how to get docker support running again, now with the build folder in each packages src
+        // todo: check on how to get docker support running again, now with the build folder in same level as each packages src
         alias: packages.reduce((alias, pkg) => ({
             ...alias,
             [pkg.name]: path.join(baseDir, pkg.src),

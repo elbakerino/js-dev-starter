@@ -34,7 +34,7 @@ const getHydrationNode = () => {
     }
 
     return (
-        <React.Profiler id="Your-Page" onRender={() => null}>
+        <React.Profiler id="ReactApp" onRender={() => null}>
             <App>
                 <ContentDataProvider initialContentData={initialContentData} initialAst={initialContentAst}>
                     {router ?
